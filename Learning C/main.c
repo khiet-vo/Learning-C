@@ -276,7 +276,6 @@ void collisionDetect(GameState* game)
 		{
 			// rubbing against right edge
 			if (mx<bx + bw && mx + mw>bx + bw && game->man.dx < 0) {
-				printf(" rubbing against right edge %f\n\n", game->man.x);
 
 				// correct x
 				game->man.x = bx + bw;
@@ -285,7 +284,6 @@ void collisionDetect(GameState* game)
 			}
 			//rubbing against left edge
 			else if (mx + mw > bx && mx < bx && game->man.dx > 0) {
-				printf(" rubbing against left edge %f\n\n", game->man.x);
 
 				// correct x
 				game->man.x = bx - mw;
