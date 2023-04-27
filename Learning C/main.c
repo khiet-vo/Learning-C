@@ -257,38 +257,51 @@ void collisionDetect(GameState* game)
 				// correct y
 				game->man.y = by + bh;
 				my = by + bh;
+
 				//bumped our head, stop any jump velocity
 				game->man.dy = 0;
 				game->man.onLedge = 1;
 			}
-			else if (my + mh > by && my < by && game->man.dy > 0)
+		}
+		if (mx + mw > bx && mx < bx + bw)
+		{
+			if (my + mh > by && my < by && game->man.dy > 0)
 			{
 				// correct y
 				game->man.y = by - mh;
+				my = by - mh;
 
-				//landed on this edge, stop any jump velocity
+				//landed on this ledge, stop any jump velocity
 				game->man.dy = 0;
 				game->man.onLedge = 1;
-
 			}
 		}
 		if (my + mh > by && my < by + bh)
 		{
 			// rubbing against right edge
-			if (mx<bx + bw && mx + mw>bx + bw && game->man.dx < 0) {
+			if (mx < bx + bw && mx + mw > bx + bw && game->man.dx < 0)
+			{
 
 				// correct x
 				game->man.x = bx + bw;
+
 				mx = bx + bw;
+
 				game->man.dx = 0;
+
 			}
 			//rubbing against left edge
-			else if (mx + mw > bx && mx < bx && game->man.dx > 0) {
+			else if (mx + mw > bx && mx < bx && game->man.dx > 0)
+			{
+
 
 				// correct x
 				game->man.x = bx - mw;
+
 				mx = bx - mw;
+
 				game->man.dx = 0;
+
 			}
 		}
 	}
